@@ -11,7 +11,7 @@
 
 ```bash
 cd ~
-git clone https://github.com/zwbao/firefly-skill.git
+git clone https://github.com/CancerDAO/firefly-skill.git
 ```
 
 ### 2. 建立 symlink

@@ -124,7 +124,7 @@ firefly-patient-org         患者组织 + 遗传咨询师名录
 ```bash
 # 1. Clone
 cd ~
-git clone https://github.com/zwbao/firefly-skill.git
+git clone https://github.com/CancerDAO/firefly-skill.git
 
 # 2. Symlink 11 个 skill 到 Claude Code 的 skills 目录
 for skill in firefly firefly-organize firefly-genetic-counseling firefly-education \

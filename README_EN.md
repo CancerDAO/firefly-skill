@@ -122,7 +122,7 @@ Three steps, see [INSTALL.md](INSTALL.md):
 ```bash
 # 1. Clone
 cd ~
-git clone https://github.com/zwbao/firefly-skill.git
+git clone https://github.com/CancerDAO/firefly-skill.git
 
 # 2. Symlink 11 skills into Claude Code skills directory
 for skill in firefly firefly-organize firefly-genetic-counseling firefly-education \
