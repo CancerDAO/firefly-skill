@@ -1,0 +1,8 @@
+.DS_Store
+docs/superpowers/
+*.pyc
+__pycache__/
+.venv/
+node_modules/
+.env
+.env.local
