@@ -1,37 +1,32 @@
 # 安装指南 · Installation
 
-## 依赖 · Requirements
-
-- [Claude Code](https://claude.ai/code) CLI（最新版）
-- git
-
-## 三步安装 · 3-Step Install
-
-### 1. Clone 仓库
+## 一行安装 · One-line install
 
 ```bash
-cd ~
-git clone https://github.com/CancerDAO/firefly-skill.git
+npx skills add CancerDAO/firefly-skill -g -a claude-code -y
 ```
 
-### 2. 建立 symlink
+这会用 [vercel-labs/skills](https://github.com/vercel-labs/skills) CLI 把 11 个 skill 一次性 symlink 到 `~/.claude/skills/`（全局 + Claude Code）。装完重启 Claude Code 即可。
+
+## 选项 · Options
 
 ```bash
-# 备份旧 firefly（如果有）
-mkdir -p ~/.claude/skills/_deprecated
-mv ~/.claude/skills/firefly ~/.claude/skills/_deprecated/firefly-pre-family-$(date +%Y%m%d) 2>/dev/null || true
+# 仅装到当前项目（不全局）
+npx skills add CancerDAO/firefly-skill -a claude-code -y
 
-# 建 11 条 symlink
-for skill in firefly firefly-organize firefly-genetic-counseling firefly-education \
-             firefly-caregiver firefly-mind firefly-diet firefly-second-opinion \
-             firefly-vault firefly-disclosure firefly-patient-org; do
-  ln -sf ~/firefly-skill/$skill ~/.claude/skills/$skill
-done
+# 装到多个 agent（OpenCode / Cursor / Codex 等也支持）
+npx skills add CancerDAO/firefly-skill -g -a claude-code -a cursor -y
+
+# 只装某几个 companion
+npx skills add CancerDAO/firefly-skill -g -a claude-code \
+  --skill firefly --skill firefly-organize --skill firefly-mind -y
+
+# 列出本仓所有 skill
+npx skills add CancerDAO/firefly-skill --list
+
+# 物理拷贝（不用 symlink）
+npx skills add CancerDAO/firefly-skill -g -a claude-code --copy -y
 ```
-
-### 3. 重启 Claude Code
-
-关闭当前会话，重新启动。输入 `/help` 应能看到 `firefly` + 10 个 `firefly-*` companion。
 
 ## 验证 · Verify
 
@@ -39,44 +34,59 @@ done
 ls -la ~/.claude/skills/ | grep firefly
 ```
 
-应看到 11 条 symlink 指向 `~/firefly-skill/`。
+应见 11 条 symlink 指向 clone 出的源代码目录。
 
-快速测试：在 Claude Code 里输入 "我家孩子确诊不了，想做一下诊断导航"，应触发 `firefly` 路由到 `firefly-organize`。
+快速测试：在 Claude Code 输入 "我家孩子确诊不了，想做诊断导航"，应触发 `firefly` 路由到 `firefly-organize`。
 
 ## 更新 · Update
 
 ```bash
-cd ~/firefly-skill && git pull
+npx skills update -a claude-code
 ```
 
-symlink 自动跟随。不需要重启 Claude Code（除非 skill frontmatter 变了）。
+或单独更新 firefly：
+
+```bash
+npx skills update firefly -a claude-code
+```
 
 ## 卸载 · Uninstall
 
 ```bash
+npx skills remove firefly firefly-organize firefly-genetic-counseling \
+  firefly-education firefly-caregiver firefly-mind firefly-diet \
+  firefly-second-opinion firefly-vault firefly-disclosure firefly-patient-org \
+  -g -a claude-code
+```
+
+## 手动安装（不依赖 CLI）· Manual install
+
+如果你不想用 `npx`，也可以手动 symlink：
+
+```bash
+git clone https://github.com/CancerDAO/firefly-skill.git ~/firefly-skill
+
+mkdir -p ~/.claude/skills
+
 for skill in firefly firefly-organize firefly-genetic-counseling firefly-education \
              firefly-caregiver firefly-mind firefly-diet firefly-second-opinion \
              firefly-vault firefly-disclosure firefly-patient-org; do
-  rm ~/.claude/skills/$skill
+  ln -sf ~/firefly-skill/skills/$skill ~/.claude/skills/$skill
 done
-
-# 可选：删除源代码
-rm -rf ~/firefly-skill
 ```
 
 ## 疑难排查 · Troubleshooting
 
+**`npx skills` 找不到命令**
+- 确认 Node.js ≥ 18：`node --version`
+- 第一次运行会下载 CLI，等几秒
+
 **Claude Code 不识别 skills**
-- 确认 `~/.claude/skills/` 存在且 symlink 目标有效：`readlink ~/.claude/skills/firefly`
 - 完全退出 Claude Code 再启动（不只是关闭窗口）
+- 确认 symlink 有效：`readlink ~/.claude/skills/firefly`
 
-**Symlink 创建失败**
-- 检查 `~/.claude/skills/` 是否存在：`mkdir -p ~/.claude/skills/`
-- macOS 权限问题：System Preferences → Privacy → Full Disk Access 给 Terminal
+**更新后行为没变**
+- SKILL.md frontmatter 改动需要重启 Claude Code
 
-**更新后 skill 行为没变**
-- 某些 SKILL.md frontmatter 改动需要重启 Claude Code
-- 清理潜在缓存：`rm -rf ~/.claude/cache/skills/` （如存在）
-
-**想在其他路径使用**
-- 修改 symlink 目标到你 clone 的位置：`ln -sf /path/to/your/firefly-skill/<skill> ~/.claude/skills/<skill>`
+**想在 macOS 之外的系统**
+- Linux 同理；Windows 用 WSL2 或 Git Bash

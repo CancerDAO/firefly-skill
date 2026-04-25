@@ -117,22 +117,15 @@ Sample applications:
 
 ## Install
 
-Three steps, see [INSTALL.md](INSTALL.md):
+One line:
 
 ```bash
-# 1. Clone
-cd ~
-git clone https://github.com/CancerDAO/firefly-skill.git
-
-# 2. Symlink 11 skills into Claude Code skills directory
-for skill in firefly firefly-organize firefly-genetic-counseling firefly-education \
-             firefly-caregiver firefly-mind firefly-diet firefly-second-opinion \
-             firefly-vault firefly-disclosure firefly-patient-org; do
-  ln -sf ~/firefly-skill/$skill ~/.claude/skills/$skill
-done
-
-# 3. Restart Claude Code
+npx skills add CancerDAO/firefly-skill -g -a claude-code -y
 ```
+
+Uses the [vercel-labs/skills](https://github.com/vercel-labs/skills) CLI to install all 11 skills to `~/.claude/skills/` at once. **Restart Claude Code** afterward.
+
+More options (project-scoped install, multi-agent, single-companion install) — see [INSTALL.md](INSTALL.md).
 
 ---
 

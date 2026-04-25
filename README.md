@@ -119,22 +119,15 @@ firefly-patient-org         患者组织 + 遗传咨询师名录
 
 ## 安装
 
-三步，详见 [INSTALL.md](INSTALL.md)：
+一行：
 
 ```bash
-# 1. Clone
-cd ~
-git clone https://github.com/CancerDAO/firefly-skill.git
-
-# 2. Symlink 11 个 skill 到 Claude Code 的 skills 目录
-for skill in firefly firefly-organize firefly-genetic-counseling firefly-education \
-             firefly-caregiver firefly-mind firefly-diet firefly-second-opinion \
-             firefly-vault firefly-disclosure firefly-patient-org; do
-  ln -sf ~/firefly-skill/$skill ~/.claude/skills/$skill
-done
-
-# 3. 重启 Claude Code
+npx skills add CancerDAO/firefly-skill -g -a claude-code -y
 ```
+
+用 [vercel-labs/skills](https://github.com/vercel-labs/skills) CLI 把 11 个 skill 一次性安装到 `~/.claude/skills/`。装完**重启 Claude Code**。
+
+更多选项（项目级安装、跨 agent、按需安装单个 companion）见 [INSTALL.md](INSTALL.md)。
 
 ---
 
