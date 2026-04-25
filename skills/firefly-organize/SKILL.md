@@ -31,7 +31,7 @@ description: "OCR 病历 → HPO 标准化 → DeepRare 多源诊断导航。完
 1. 接受文件夹或单文件（PDF / JPG / PNG / DOCX）
 2. 文本提取：`pdftotext`、`pytesseract`、或 LLM 视觉直接读
 3. 重点识别：基因报告变异位点、IHC 结果、影像描述、病理描述
-4. **dispatch subagent** 做重 LLM 结构化（长文本解析、多文档合并），主线程只编排
+4. **派发并行子任务**做重 LLM 结构化（长文本解析、多文档合并），主线程只编排——按 host agent 的并行机制（Claude Code: subagent / Codex: task fanout / OpenCode: parallel agent）
 
 ### Step 2: 患者档案初始化
 
@@ -53,7 +53,7 @@ description: "OCR 病历 → HPO 标准化 → DeepRare 多源诊断导航。完
 
 详见 `references/multi-source-search.md` 和 `../firefly/references/deeprare-engine.md`。
 
-Dispatch 多个 subagent 并行查询：
+派发多个并行子任务（按 host agent 的并行机制）查询：
 - PubCaseFinder（HPO-based case retrieval）
 - Phenobrain（AI 表型-疾病预测）
 - OMIM / Orphanet / GARD
@@ -81,7 +81,7 @@ Dispatch 多个 subagent 并行查询：
 
 ### Step 7: 基因组增强（如有 VCF）
 
-- dispatch subagent 做 Exomiser 风格变异优先级（基因组 + 表型联合）
+- 派发并行子任务做 Exomiser 风格变异优先级（基因组 + 表型联合）
 - ACMG 变异分类解读（交给 firefly-genetic-counseling 深度处理，organize 只做初筛）
 - 表型-基因组多模态诊断
 

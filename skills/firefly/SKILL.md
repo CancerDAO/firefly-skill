@@ -45,7 +45,7 @@ Patient input
 
 1. 读取用户输入，识别关键信号（见决策树）
 2. 告诉用户："这个情境我会调用 `firefly-<name>` 来处理"
-3. 使用 Skill 工具 invoke 对应 companion
+3. 按 host agent 的 skill 触发机制调用对应 companion（Claude Code: Skill 工具 / Codex: skill activate / OpenCode/Cursor: 同名 skill 调用）
 4. 不在 meta 里执行 companion 的协议——companion 自治
 
 **Meta 不重复 references 内容**。需要共享资源时引用路径：

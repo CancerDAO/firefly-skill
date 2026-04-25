@@ -33,7 +33,7 @@
 **Wave 3（仅当有基因数据）**：
 - ClinVar + gnomAD + DECIPHER 并行
 
-各 wave 之间可视作独立 subagent 任务，结果汇总后进入融合层。失败源不阻塞后续。
+各 wave 之间可视作独立的并行子任务（按 host agent 的并行机制执行），结果汇总后进入融合层。失败源不阻塞后续。
 
 ---
 
