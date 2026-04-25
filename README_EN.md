@@ -134,9 +134,7 @@ npx skills add CancerDAO/firefly-skill -g -a claude-code -a codex -a opencode -a
 npx skills add CancerDAO/firefly-skill -g --all -y
 ```
 
-Uses the [vercel-labs/skills](https://github.com/vercel-labs/skills) CLI which auto-symlinks to each agent's skills directory. **Restart the relevant agent** afterward.
-
-More options (project-scoped install, single-companion, manual symlink) — see [INSTALL.md](INSTALL.md).
+**Restart the relevant agent** afterward. More options (project-scoped install, single-companion, manual symlink) — see [INSTALL.md](INSTALL.md).
 
 ---
 

@@ -136,9 +136,7 @@ npx skills add CancerDAO/firefly-skill -g -a claude-code -a codex -a opencode -a
 npx skills add CancerDAO/firefly-skill -g --all -y
 ```
 
-用 [vercel-labs/skills](https://github.com/vercel-labs/skills) CLI 自动 symlink 到对应 agent 的 skills 目录。装完**重启对应 agent**。
-
-更多选项（项目级安装、按需装单个 companion、手动 symlink）见 [INSTALL.md](INSTALL.md)。
+装完**重启对应 agent**。更多选项（项目级安装、按需装单个 companion、手动 symlink）见 [INSTALL.md](INSTALL.md)。
 
 ---
 
