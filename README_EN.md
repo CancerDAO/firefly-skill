@@ -5,7 +5,11 @@
 > *"Every rare condition deserves to be taken seriously."*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
+[![Agent Skill](https://img.shields.io/badge/Agent%20Skill-universal-blueviolet)](https://github.com/vercel-labs/skills)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-✓-blue)](https://claude.ai/code)
+[![Codex](https://img.shields.io/badge/Codex-✓-blue)](https://github.com/openai/codex)
+[![OpenCode](https://img.shields.io/badge/OpenCode-✓-blue)](https://opencode.ai)
+[![Cursor](https://img.shields.io/badge/Cursor-✓-blue)](https://cursor.com)
 [![DeepRare](https://img.shields.io/badge/DeepRare-Nature%202026-brightgreen)](https://www.nature.com/articles/s41586-025-10097-9)
 
 <br>
@@ -117,15 +121,22 @@ Sample applications:
 
 ## Install
 
-One line:
+One line, install to Claude Code, Codex, OpenCode, Cursor, or any combination:
 
 ```bash
+# Claude Code (most common)
 npx skills add CancerDAO/firefly-skill -g -a claude-code -y
+
+# Multiple agents at once
+npx skills add CancerDAO/firefly-skill -g -a claude-code -a codex -a opencode -a cursor -y
+
+# All supported agents (45+)
+npx skills add CancerDAO/firefly-skill -g --all -y
 ```
 
-Uses the [vercel-labs/skills](https://github.com/vercel-labs/skills) CLI to install all 11 skills to `~/.claude/skills/` at once. **Restart Claude Code** afterward.
+Uses the [vercel-labs/skills](https://github.com/vercel-labs/skills) CLI which auto-symlinks to each agent's skills directory. **Restart the relevant agent** afterward.
 
-More options (project-scoped install, multi-agent, single-companion install) — see [INSTALL.md](INSTALL.md).
+More options (project-scoped install, single-companion, manual symlink) — see [INSTALL.md](INSTALL.md).
 
 ---
 

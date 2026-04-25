@@ -5,7 +5,11 @@
 > *"每一种罕见，都值得被认真对待。"*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
+[![Agent Skill](https://img.shields.io/badge/Agent%20Skill-universal-blueviolet)](https://github.com/vercel-labs/skills)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-✓-blue)](https://claude.ai/code)
+[![Codex](https://img.shields.io/badge/Codex-✓-blue)](https://github.com/openai/codex)
+[![OpenCode](https://img.shields.io/badge/OpenCode-✓-blue)](https://opencode.ai)
+[![Cursor](https://img.shields.io/badge/Cursor-✓-blue)](https://cursor.com)
 [![DeepRare](https://img.shields.io/badge/DeepRare-Nature%202026-brightgreen)](https://www.nature.com/articles/s41586-025-10097-9)
 
 <br>
@@ -119,15 +123,22 @@ firefly-patient-org         患者组织 + 遗传咨询师名录
 
 ## 安装
 
-一行：
+一行装到 Claude Code、Codex、OpenCode、Cursor 中的任意一个或多个 agent：
 
 ```bash
+# 装到 Claude Code（最常见）
 npx skills add CancerDAO/firefly-skill -g -a claude-code -y
+
+# 同时装到多个 agent
+npx skills add CancerDAO/firefly-skill -g -a claude-code -a codex -a opencode -a cursor -y
+
+# 装到全部支持的 agent（45+）
+npx skills add CancerDAO/firefly-skill -g --all -y
 ```
 
-用 [vercel-labs/skills](https://github.com/vercel-labs/skills) CLI 把 11 个 skill 一次性安装到 `~/.claude/skills/`。装完**重启 Claude Code**。
+用 [vercel-labs/skills](https://github.com/vercel-labs/skills) CLI 自动 symlink 到对应 agent 的 skills 目录。装完**重启对应 agent**。
 
-更多选项（项目级安装、跨 agent、按需安装单个 companion）见 [INSTALL.md](INSTALL.md)。
+更多选项（项目级安装、按需装单个 companion、手动 symlink）见 [INSTALL.md](INSTALL.md)。
 
 ---
 
