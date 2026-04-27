@@ -1,5 +1,11 @@
 <div align="center">
 
+<img src="assets/cancerdao-logo.png" alt="CancerDAO" height="64">
+&nbsp;&nbsp;&nbsp;<b>×</b>&nbsp;&nbsp;&nbsp;
+<img src="assets/khub-logo.jpg" alt="KHub Rare Disease Open-Source Community" height="64">
+
+<sub>A joint release by <b>CancerDAO</b> × <b>KHub Rare Disease Open-Source Community</b></sub>
+
 # firefly.skill
 
 > *"Every rare condition deserves to be taken seriously."*
@@ -171,6 +177,35 @@ All modules share one `profile.json` (schema: [firefly/references/templates.md](
  firefly-mind       →  Write mental_health screening
  ...
 ```
+
+---
+
+## A Joint Release
+
+Firefly is co-founded and co-maintained by **CancerDAO** and the **KHub Rare Disease Open-Source Community**.
+
+<table>
+<tr>
+<td align="center" width="50%">
+<img src="assets/khub-logo.jpg" alt="KHub" height="56"><br>
+<b>KHub · Rare Disease Open-Source Community</b>
+</td>
+<td align="center" width="50%">
+<img src="assets/cancerdao-logo.png" alt="CancerDAO" height="56"><br>
+<b>CancerDAO</b>
+</td>
+</tr>
+<tr>
+<td valign="top">
+China's first rare-disease community where patients raise the requirements and technical contributors build in the open. Driven by real-world scenarios, iterated by small focused groups, with outcomes flowing both ways — solving immediate problems for patients while accumulating reusable solutions for the industry.
+</td>
+<td valign="top">
+The world's first cancer-health infrastructure that is patient-lifecycle-data-driven, AI-native, and community-built. Real clinical data as the foundation, AI as the engine, and community as the network — connecting in-hospital care, industry collaboration, and patient services into one continuous value chain.
+</td>
+</tr>
+</table>
+
+Rare disease and cancer share the same structural challenges: the diagnostic odyssey, fragmented data, missing patient voices, and the gap between clinic and industry. The two communities pool their methodologies into Firefly — KHub contributes patient-initiated real-world scenarios and open-source collaboration; CancerDAO contributes the full-lifecycle data paradigm and AI-native engineering substrate.
 
 ---
 

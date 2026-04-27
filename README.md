@@ -1,5 +1,11 @@
 <div align="center">
 
+<img src="assets/cancerdao-logo.png" alt="CancerDAO" height="64">
+&nbsp;&nbsp;&nbsp;<b>×</b>&nbsp;&nbsp;&nbsp;
+<img src="assets/khub-logo.jpg" alt="KHub 罕见病开源社区" height="64">
+
+<sub><b>CancerDAO</b> × <b>KHub 罕见病开源社区</b> 联合出品</sub>
+
 # 萤火.skill
 
 > *"每一种罕见，都值得被认真对待。"*
@@ -173,6 +179,35 @@ npx skills add CancerDAO/firefly-skill -g --all -y
  firefly-mind       →  写 mental_health 筛查结果
  ...
 ```
+
+---
+
+## 联合出品
+
+萤火由 **CancerDAO** 与 **KHub 罕见病开源社区** 共同发起、共同维护。
+
+<table>
+<tr>
+<td align="center" width="50%">
+<img src="assets/khub-logo.jpg" alt="KHub" height="56"><br>
+<b>KHub · 罕见病开源社区</b>
+</td>
+<td align="center" width="50%">
+<img src="assets/cancerdao-logo.png" alt="CancerDAO" height="56"><br>
+<b>CancerDAO</b>
+</td>
+</tr>
+<tr>
+<td valign="top">
+国内首个由患者发起需求、技术共建者开源协作的罕见病社区。真实场景驱动，小组快速迭代，成果双向反哺——既解决患者当下的问题，也为产业沉淀可复用的方案。
+</td>
+<td valign="top">
+全球首个患者全病程数据驱动、AI 原生、社区共建的肿瘤健康基础设施。以真实临床数据为基石、AI 为引擎、社区为网络，贯通院内诊疗、产业协作与患者服务的完整价值链。
+</td>
+</tr>
+</table>
+
+罕见病与肿瘤共享同一组结构性难题：诊断奥德赛、数据碎片化、患者声音缺位、临床到产业的断层。两个社区把各自的方法论汇到萤火里——KHub 贡献患者发起的真实场景与开源协作机制，CancerDAO 贡献全病程数据范式与 AI-native 工程基座。
 
 ---
 
