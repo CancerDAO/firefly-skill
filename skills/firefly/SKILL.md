@@ -1,6 +1,6 @@
 ---
 name: firefly
-description: "萤火 (Firefly) — 罕见病患者 AI 导航家族。10 个 companion 子技能：(1) firefly-organize OCR+HPO+DeepRare 诊断导航, (2) firefly-genetic-counseling ACMG+家系+生育指导, (3) firefly-education 患教手册, (4) firefly-caregiver 照护者支持, (5) firefly-mind 心理筛查 PHQ-9/GAD-7/IES-R, (6) firefly-diet 代谢病饮食, (7) firefly-second-opinion 跨境会诊 UDN, (8) firefly-vault N=1 数据仓, (9) firefly-disclosure 遗传风险家庭告知, (10) firefly-patient-org 患者组织+遗传咨询师. Powered by: DeepRare diagnostic methodology (Nature 2026, 64.4% recall@1 across 2919 diseases), rare-disease-god-perspective cognitive framework. Use when: 罕见病患者/家属的任何阶段——未确诊 / 诊断奥德赛 / 已确诊找药 / 照护支持 / 跨境会诊 / 心理困扰 / 找病友. Triggers on: 罕见病, rare disease, 确诊不了, 看了很多医生都不知道, 遗传病, 孤儿药, orphan drug, 基因检测结果, 萤火, firefly, DeepRare, HPO, WES, 全外显子, 罕见病目录, 诊断不明, 怀疑遗传病, 罕见病照护者, UDN, 跨境会诊."
+description: "萤火 (Firefly) — 罕见病患者 AI 导航家族。11 个 companion 子技能：(1) firefly-organize OCR+HPO+DeepRare 诊断导航, (2) firefly-genetic-counseling ACMG+家系+生育指导, (3) firefly-education 患教手册, (4) firefly-caregiver 照护者支持, (5) firefly-mind 心理筛查 PHQ-9/GAD-7/IES-R, (6) firefly-diet 代谢病饮食, (7) firefly-second-opinion 跨境会诊 UDN, (8) firefly-vault N=1 数据仓, (9) firefly-disclosure 遗传风险家庭告知, (10) firefly-patient-org 已 curated 患者组织+遗传咨询师库, (11) firefly-find-care 多 subagent 并行联网活体查找专家中心/专科医生/试验/诊断网络. Powered by: DeepRare diagnostic methodology (Nature 2026, 64.4% recall@1 across 2919 diseases), rare-disease-god-perspective cognitive framework, vendored web-access (eze-is/web-access MIT). Use when: 罕见病患者/家属的任何阶段——未确诊 / 诊断奥德赛 / 已确诊找药 / 照护支持 / 跨境会诊 / 心理困扰 / 找病友 / 找专家中心. Triggers on: 罕见病, rare disease, 确诊不了, 看了很多医生都不知道, 遗传病, 孤儿药, orphan drug, 基因检测结果, 萤火, firefly, DeepRare, HPO, WES, 全外显子, 罕见病目录, 诊断不明, 怀疑遗传病, 罕见病照护者, UDN, 跨境会诊, 找专家, ORPHANET, RDCRN."
 ---
 
 # 萤火 — 罕见病患者 AI 导航
@@ -9,7 +9,7 @@ description: "萤火 (Firefly) — 罕见病患者 AI 导航家族。10 个 comp
 
 萤火做三件事：帮你找到诊断方向、帮你找到治疗路径、帮你找到支持资源。不管你处在哪个阶段——刚开始怀疑、确诊不了、还是确诊后找不到药——萤火帮你梳理下一步。
 
-本 skill 是**家族入口**，根据你的情境分派到 10 个 companion 子技能之一。每个 companion 也可以独立触发（比如直接调 `/firefly-mind` 做心理筛查，不需要先走家族入口）。
+本 skill 是**家族入口**，根据你的情境分派到 11 个 companion 子技能之一。每个 companion 也可以独立触发（比如直接调 `/firefly-mind` 做心理筛查，不需要先走家族入口）。
 
 ## Core Principles
 
@@ -36,7 +36,8 @@ Patient input
 ├─ 跨境会诊 / UDN / UDP-EU 申请            → firefly-second-opinion
 ├─ 建 N=1 数据仓                           → firefly-vault
 ├─ 告诉孩子/亲属遗传风险                   → firefly-disclosure
-└─ 找病友 / 找遗传咨询师 / 找专科医生       → firefly-patient-org
+├─ 找已 curated 病友组织 / 已知遗传咨询师库 → firefly-patient-org
+└─ 活体查专家中心 / 专科医生 / 试验 / 诊断网络入口 → firefly-find-care
 ```
 
 患者可从任何情境进入。识别到多个 companion 相关时，先问最紧迫的一项。

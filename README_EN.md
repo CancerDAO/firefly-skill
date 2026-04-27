@@ -53,13 +53,14 @@ The pain of rare disease is not just rarity itself — it's the whole path: 5-7 
 | When to tell the child | SHARE-model age-stratified disclosure scripts (0-6 / 7-11 / 12-17 / adult) |
 | PKU / Pompe diet | Disease-specific diet protocols + food exchange + metabolic crisis emergency card |
 | Systematic medical records | N=1 data vault + 4-level sharing control (🔒 private → 🌐 anonymized public) |
-| Finding peer patients | China Alliance for Rare Diseases + single-disease communities + NORD / EURORDIS |
+| Finding peer patients | China Alliance for Rare Diseases + single-disease communities + NORD / EURORDIS (curated) |
+| Need to find an expert centre, recruiting trial, or UDN application path | Multi-subagent parallel web research over ORPHANET / RDCRN / China rare-disease network / one-source data, ranked shortlist with referral path |
 
 ---
 
 ## Features
 
-### 1 entry point + 10 companion modules
+### 1 entry point + 11 companion modules + 1 web automation backbone
 
 ```
 firefly                     Family entry point, routes by situation
@@ -73,7 +74,10 @@ firefly-diet                Metabolic rare disease diets (PKU / Pompe / UCD / MS
 firefly-second-opinion      UDN / UDP-EU / China network case packets
 firefly-vault               N=1 data vault + re-identification risk assessment
 firefly-disclosure          Genetic risk disclosure (children / blood relatives / spouse)
-firefly-patient-org         Patient organization + genetic counselor directory
+firefly-patient-org         Curated patient organization + genetic counselor directory
+firefly-find-care           Live find expert centres / specialist physicians / trials / diagnostic networks (ORPHANET / RDCRN / UDN / China network, parallel multi-subagent web research)
+
+web-access                  Web automation backbone (CDP browser + parallel subagent dispatch, hard dependency for find-care)
 ```
 
 Each module can be **triggered independently**. The system understands your context first, then guides next steps.
@@ -147,7 +151,7 @@ Enter any trigger scenario in Claude Code:
 - "I want to submit a consultation to an overseas center, how do I prepare?" → `firefly-second-opinion`
 - "What can a child with PKU eat?" → `firefly-diet`
 
-Or invoke companions directly: `/firefly-mind` for screening / `/firefly-patient-org` to find peers.
+Or invoke companions directly: `/firefly-mind` for screening / `/firefly-patient-org` for curated peer orgs / `/firefly-find-care` for live expert-centre research.
 
 ---
 
@@ -193,6 +197,7 @@ MIT License — see [LICENSE](LICENSE)
 - ACMG variant classification: Richards et al. 2015 + ClinGen
 - China Rare Disease Diagnosis and Treatment Collaborative Network: 324 member hospitals + China Alliance for Rare Diseases
 - 50 rare disease researchers whose collective cognition informed the framework (see `firefly/references/cognitive-framework.md`)
+- **The `firefly-find-care` module's parallel multi-subagent web research capability is built on top of [web-access](https://github.com/eze-is/web-access) (MIT, v2.5.0) by [一泽Eze](https://github.com/eze-is)**. We bundle web-access verbatim under `skills/web-access/` (original SKILL.md, scripts, references preserved). All copyright belongs to the original author; redistributed under MIT.
 
 <br>
 

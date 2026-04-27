@@ -53,13 +53,14 @@
 | 孩子几岁能告诉他诊断 | SHARE 模型年龄分层告知脚本（0-6 / 7-11 / 12-17 / 成年） |
 | PKU / Pompe 患儿不知怎么吃 | 按病种加载饮食协议 + 食物交换份 + 代谢危象应急卡 |
 | 想系统建自己的医疗档案 | N=1 数据仓 + 4 级分享控制（🔒私有 → 🌐匿名公开） |
-| 确诊了不知道有没有病友 | 中国罕见病联盟 + 单病社群 + NORD / EURORDIS 匹配 |
+| 确诊了不知道有没有病友 | 中国罕见病联盟 + 单病社群 + NORD / EURORDIS 匹配（curated 库） |
+| 想找做 X 病的专家中心 / 招募中试验 / UDN 申请路径 | 多 subagent 并行联网 ORPHANET / RDCRN / 协作网 / 一手源，按匹配度排序的短名单 + 转诊路径 |
 
 ---
 
 ## 功能
 
-### 1 个入口 + 10 个陪伴模块
+### 1 个入口 + 11 个陪伴模块 + 1 个联网底层
 
 ```
 firefly                     家族入口，按你的情境分派到对应子技能
@@ -73,7 +74,10 @@ firefly-diet                代谢性罕见病饮食（PKU / Pompe / UCD / MSUD 
 firefly-second-opinion      UDN / UDP-EU / 协作网跨境会诊包
 firefly-vault               N=1 数据仓 + 基因数据重识别风险评估
 firefly-disclosure          遗传风险家庭告知（对孩子 / 血亲 / 配偶）
-firefly-patient-org         患者组织 + 遗传咨询师名录
+firefly-patient-org         已 curated 患者组织 + 遗传咨询师库
+firefly-find-care           活体查专家中心 / 专科医生 / 试验 / 诊断网络（ORPHANET / RDCRN / UDN / 协作网，多 subagent 并行联网）
+
+web-access                  联网底层（CDP 浏览器 + 并行 subagent 调度，find-care 必需依赖）
 ```
 
 每个模块都可以 **独立触发**，不需要按顺序走完整条路。系统先理解你的身份和情境，再引导下一步。
@@ -149,7 +153,7 @@ npx skills add CancerDAO/firefly-skill -g --all -y
 - "想给国外医院投一份诊断咨询，怎么准备材料" → `firefly-second-opinion`
 - "苯酮尿症的孩子能吃什么" → `firefly-diet`
 
-或者直接调子技能：`/firefly-mind` 做心理筛查 / `/firefly-patient-org` 找病友。
+或者直接调子技能：`/firefly-mind` 做心理筛查 / `/firefly-patient-org` 找已知病友 / `/firefly-find-care` 联网调研专家中心。
 
 ---
 
@@ -195,6 +199,7 @@ MIT License — 见 [LICENSE](LICENSE)
 - ACMG 变异分类：Richards et al. 2015 + ClinGen
 - 中国罕见病诊疗协作网：324 家成员医院 + 中国罕见病联盟
 - 50 位罕见病领域研究者的集体认知贡献（见 `firefly/references/cognitive-framework.md`）
+- **`firefly-find-care` 模块的多 subagent 并行联网能力，基于 [一泽Eze](https://github.com/eze-is) 开发的开源 skill [web-access](https://github.com/eze-is/web-access)（MIT，v2.5.0）实现**。我们将 web-access 整体 vendor 进 `skills/web-access/`，保留原作者署名 / 许可证 / 脚本 / 站点经验。该模块版权归原作者所有，按 MIT 重新分发
 
 <br>
 

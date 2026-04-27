@@ -79,9 +79,20 @@ ls -la ~/.opencode/skills/ | grep firefly
 ls -la ~/.cursor/skills/ | grep firefly
 ```
 
-应见 11 条 symlink 指向 clone 出的源代码目录。
+应见 13 条 symlink 指向 clone 出的源代码目录（1 meta + 11 companion + 1 web-access 联网底层）。
 
 快速测试：在你的 agent 里输入 "我家孩子确诊不了，想做诊断导航"，应触发 `firefly` 路由到 `firefly-organize`。
+
+### Web-access 前置（仅 `firefly-find-care` 需要）
+
+`firefly-find-care` 通过 vendored 的 [web-access](https://github.com/eze-is/web-access)（MIT，v2.5.0）做多 subagent 并行联网调研，对反爬严格的站点（ORPHANET expert centres 列表、中国罕见病诊疗协作网、好大夫在线等）需要走用户本地 Chrome。一次性设置：
+
+1. **Node.js 22+**（原生 WebSocket）。低版本可用但需 `npm install ws` 全局
+2. Chrome 地址栏打开 `chrome://inspect/#remote-debugging`，勾选 **"Allow remote debugging for this browser instance"**（可能需重启 Chrome）
+
+不做这一步时 `find-care` 退化到纯 WebSearch / WebFetch，部分查询能完成，专家中心 / 协作网 / 反爬源相关查询不可靠。其他 11 个 firefly 子技能不需要这一步。
+
+> **跨 agent 注意**：web-access 的 CDP 并行子 agent 模式目前在 Claude Code 上最成熟。Codex / OpenCode / Cursor 上 `firefly-find-care` 会自动降级为主 agent 串行联网，速度变慢但流程一致。
 
 ## 更新 · Update
 
@@ -103,6 +114,7 @@ npx skills update
 npx skills remove firefly firefly-organize firefly-genetic-counseling \
   firefly-education firefly-caregiver firefly-mind firefly-diet \
   firefly-second-opinion firefly-vault firefly-disclosure firefly-patient-org \
+  firefly-find-care web-access \
   -g -a claude-code
 ```
 
@@ -119,7 +131,8 @@ mkdir -p ~/.claude/skills
 
 for skill in firefly firefly-organize firefly-genetic-counseling firefly-education \
              firefly-caregiver firefly-mind firefly-diet firefly-second-opinion \
-             firefly-vault firefly-disclosure firefly-patient-org; do
+             firefly-vault firefly-disclosure firefly-patient-org \
+             firefly-find-care web-access; do
   ln -sf ~/firefly-skill/skills/$skill ~/.claude/skills/$skill
 done
 ```
